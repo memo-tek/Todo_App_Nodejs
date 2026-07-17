@@ -11,7 +11,7 @@ app.use(express.json());
 
 const port = process.env.PORT;
 
-const cors=require('cors');
+const cors = require('cors');
 app.use(cors());
 
 const todosRoutes = require('./routes/todos');
@@ -19,6 +19,7 @@ const todosRoutes = require('./routes/todos');
 app.use('/api/todos', todosRoutes);
 
 
+console.log("MONGO_URI =", process.env.MONGO_URI);
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("Mongo DB connected"))
